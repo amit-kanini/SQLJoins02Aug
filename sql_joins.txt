@@ -1,0 +1,42 @@
+use pubs
+
+select * from employee where pub_id in(select pub_id FROM titles where price>10)
+
+select concat(fname ,' ', lname)employee_name from employee where pub_id in(select pub_id FROM titles where price>10)
+
+
+--inner join
+select title 'book anme',qty 'book sold'
+from titles join sales
+on titles.title_id=sales.title_id
+
+--instance.
+select title 'book anme',qty 'book sold'
+from titles t join sales s
+on t.title_id=s.title_id
+
+select pub_name 'publisher name' ,title
+from titles join publishers
+on titles.pub_id=publishers.pub_id
+
+select * from authors
+select * from titleauthor
+select * from titles
+--
+select concat(au_fname,'',au_lname),title
+from titles t join titleauthor ta on t.title_id=ta.title_id
+join authors a on ta.au_id=a.au_id
+
+
+select pub_name,title,qty*price 'total sales'
+from titles t join publishers p on t.pub_id=p.pub_id
+join sales s on t.title_id=s.title_id
+
+select title,pub_name from 
+publishers p left outer join titles t on t.pub_id=p.pub_id
+order by 2
+
+select concat(au_fname,'',au_lname) 'author name' ,title from
+authors a join titleauthor  on a.au_id=titleauthor.au_id
+join titles t on  t.title_id =titleauthor.title_id 
+
