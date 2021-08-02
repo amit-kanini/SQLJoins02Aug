@@ -36,7 +36,8 @@ select title,pub_name from
 publishers p left outer join titles t on t.pub_id=p.pub_id
 order by 2
 
-select concat(au_fname,'',au_lname) 'author name' ,title from
-authors a join titleauthor  on a.au_id=titleauthor.au_id
-join titles t on  t.title_id =titleauthor.title_id 
 
+
+
+
+Edting the files for pulling on local git.
